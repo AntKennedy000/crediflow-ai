@@ -1,0 +1,18 @@
+{
+  "verificadoEm": "2026-09-13T14:29:04.9841173-03:00",
+  "origem": "GET http://127.0.0.1:8081/api/resumo?mes=2026-09",
+  "dados": "Cenario ficticio de demonstracao",
+  "resumo": {
+    "mes": "2026-09",
+    "quantidade": 2,
+    "receitas": 5000.00,
+    "despesas": 120.00,
+    "saldo": 4880.00,
+    "pagamentosDividas": 0.00,
+    "percentualDividasSobreReceitas": 0.00,
+    "despesasPorCategoria": {
+      "ALIMENTACAO": 120.00
+    },
+    "ressalva": "Somente lancamentos confirmados. Dividas/receitas e um indicador descritivo, nao score, limite ou aprovacao de credito. Sem receitas, o percentual nao e calculado."
+  }
+}

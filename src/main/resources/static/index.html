@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CrediFlow AI — Fluxo de caixa local</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><span class="selo">PROJETO EDUCACIONAL · IA LOCAL</span><h1>CrediFlow <em>AI</em></h1>
+    <p>Da sua voz ao fluxo de caixa. Você confere; o código calcula.</p></header>
+  <aside>Use apenas dados fictícios. Não acessamos bancos, não calculamos score e não aprovamos crédito.
+    Textos e áudios são processados localmente; lançamentos ficam salvos neste computador.</aside>
+  <section>
+    <h2>Converse com seu fluxo de caixa</h2>
+    <label for="comando">O que você deseja registrar ou consultar?</label>
+    <textarea id="comando" maxlength="1000" rows="3" placeholder="Registre uma receita fictícia de 5000 reais, categoria salário, em 12/09/2026."></textarea>
+    <div class="acoes"><button id="enviar">Enviar comando</button><button id="gravar" class="secundario">Gravar áudio</button><button id="parar" class="secundario" disabled>Parar gravação</button></div>
+    <div class="arquivo"><label for="arquivo">Ou escolha um áudio de até 60 segundos e 10 MB:</label>
+      <input id="arquivo" type="file" accept="audio/*"><button id="enviarArquivo" class="secundario">Processar arquivo</button></div>
+    <p class="detalhe">O processamento local pode demorar. Para áudio, diga tipo, valor, data (por exemplo, “12 de setembro de 2026”), categoria e descrição. Confira a transcrição antes de confirmar. Toda gravação exige sua autorização no navegador.</p>
+    <p id="estado" role="status" aria-live="polite"></p>
+    <div id="resultado" hidden><h3>Resultado</h3><p id="transcricao"></p><p id="mensagem"></p><audio id="voz" controls hidden></audio><pre id="dados"></pre>
+      <button id="confirmar" hidden>Confirmar lançamento</button><button id="ouvir" class="secundario" hidden>Ouvir resposta</button></div>
+  </section>
+  <section>
+    <div class="linha"><h2>Visão mensal</h2><label>Mês <input id="mes" type="month" value="2026-09"></label><button id="consultar" class="secundario">Atualizar</button></div>
+    <div class="indicadores"><article><span>Receitas confirmadas</span><strong id="receitas">—</strong></article><article><span>Despesas confirmadas</span><strong id="despesas">—</strong></article><article><span>Saldo registrado</span><strong id="saldo">—</strong></article><article><span>Dívidas / receitas</span><strong id="comprometimento">—</strong></article></div>
+    <p class="detalhe">Saldo não é limite de crédito. O percentual considera pagamentos classificados como DIVIDAS; não representa todos os compromissos futuros. Sem receitas, não calculamos o percentual.</p>
+    <div class="tabela"><table><thead><tr><th>Data</th><th>Tipo</th><th>Categoria</th><th>Descrição</th><th>Valor</th></tr></thead><tbody id="lancamentos"></tbody></table></div>
+  </section>
+  <details><summary>Registrar manualmente, sem IA</summary>
+    <form id="manual"><label>Tipo<select name="tipo"><option>RECEITA</option><option>DESPESA</option></select></label>
+      <label>Valor em reais<input name="valor" type="number" min="0.01" max="999999999.99" step="0.01" required></label>
+      <label>Data<input name="data" type="date" min="2000-01-01" max="2100-12-31" required></label>
+      <label>Categoria<select name="categoria"><option>SALARIO</option><option>MORADIA</option><option>ALIMENTACAO</option><option>TRANSPORTE</option><option>SAUDE</option><option>EDUCACAO</option><option>DIVIDAS</option><option>OUTROS</option></select></label>
+      <label>Descrição fictícia<input name="descricao" maxlength="160" required></label><button>Preparar para conferência</button></form>
+  </details>
+  <footer>Java + Spring AI + Ollama + Whisper local + voz do Windows · Sem API paga<br>Protótipo individual, sem autenticação. Não disponibilize esta aplicação na internet.</footer>
+</main>
+</body></html>
